@@ -31,7 +31,10 @@ export class TasksController {
   }
 
   @Put()
-  updateTask(@Body('id') id: string, @Body('status') taskStatus: TaskStatus) {
+  updateTask(
+    @Body('id') id: string,
+    @Body('status') taskStatus: TaskStatus,
+  ): Task {
     return this.tasksService.updateTask(id, taskStatus);
   }
 

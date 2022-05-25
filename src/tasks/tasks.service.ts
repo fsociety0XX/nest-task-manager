@@ -32,13 +32,8 @@ export class TasksService {
   }
 
   updateTask(id: string, taskStatus: TaskStatus): Task {
-    let updatedTask = null;
-    this.tasks.forEach((task) => {
-      if (task.id === id) {
-        task.status = taskStatus;
-        updatedTask = task;
-      }
-    });
-    return updatedTask;
+    const task = this.getTaskById(id);
+    task.status = taskStatus;
+    return task;
   }
 }
